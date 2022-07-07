@@ -1,1 +1,32 @@
-<p>dropdown works!</p>
+<!-- <mat-form-field appearance="fill" class="fo">
+  <mat-label class="label-element">Favorite food</mat-label>
+  <ng-content select=".status"></ng-content>
+  <mat-select #selc>
+    <mat-option
+      class="option-ele"
+      *ngFor="let data of parentData"
+      [value]="data.value"
+    >
+      {{ data.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<!-- <select class="select-element">
+  <option
+    *ngFor="let data of parentData"
+    class="option-element"
+    value="data.value"
+  >
+    {{ data.viewValue }}
+  </option>
+</select> -->
+<mat-form-field>
+  <mat-label> Test </mat-label>
+  <input matInput type="text" [matAutocomplete]="auto" />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let data of parentData">
+      {{ data.viewValue }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

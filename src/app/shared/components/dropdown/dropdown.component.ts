@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { map, Observable, startWith } from 'rxjs';
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-dropdown',
@@ -6,9 +13,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent implements OnInit {
-  constructor() {}
+  @Input() parentData: Food[] = [];
 
-  ngOnInit(): void {
-    console.log('DropdownComponent ngOnInit');
+  // selectedOption = this.parentData[0]['viewValue']
+
+  // myControl = new FormControl('');
+  // options: string[] = ['One', 'Two', 'Three'];
+  // filteredOptions: Observable<string[]> | undefined;
+
+  ngOnInit() {
+    // this.filteredOptions = this.myControl.valueChanges.pipe(
+    //   startWith(''),
+    //   map((value) => this._filter(value || ''))
+    // );
   }
+
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+
+  //   return this.options.filter((option) =>
+  //     option.toLowerCase().includes(filterValue)
+  //   );
+  // }
 }

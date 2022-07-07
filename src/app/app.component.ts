@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './user/auth.service';
 import { KeycloakProfile } from 'keycloak-js';
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +17,15 @@ export class AppComponent implements OnInit {
   public loggedIn: boolean = false;
   public userProfile: KeycloakProfile = {};
 
+
+
+  foods: Food[] = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' }
+  ];
+
+  
   logout() {
     this.auth.logout();
   }

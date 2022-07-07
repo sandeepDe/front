@@ -8,21 +8,31 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { BoxContainerComponent } from './components/box-container/box-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     LayoutComponent,
     NavbarComponent,
+
     HeaderComponent,
-    DropdownComponent
+    DropdownComponent,
+    BoxContainerComponent
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
     MatIconModule,
+    MatCardModule,
     MatButtonModule,
+    MatSelectModule,
     RouterModule.forChild([])
   ],
-  exports: [LayoutComponent, HeaderComponent]
+  exports: [LayoutComponent, HeaderComponent, DropdownComponent]
 })
 export class SharedModule {}

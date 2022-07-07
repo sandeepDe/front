@@ -6,13 +6,31 @@
   height: 100vh;
 }
 
+.main-container {
+  // border: solid red 1px;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  // align-items: flex-start;
+}
+
 main {
   flex: 1;
+  height: 100%;
   display: flex;
+  // justify-content: space-between;
   border-bottom: $border;
   app-navbar {
     width: 10%;
     max-width: 100px;
     border-right: $border;
+  }
+  app-box-container {
+    width: 91%;
+
+    height: 95%;
+    // border-style: solid;
+    // border-width: 1px;
+    // border-color: $border;
   }
 }
