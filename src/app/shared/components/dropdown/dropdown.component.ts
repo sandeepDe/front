@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
-
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 interface Food {
   value: string;
   viewValue: string;
@@ -13,26 +14,30 @@ interface Food {
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent implements OnInit {
+  foods: Food[] = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' }
+  ];
+
   @Input() parentData: Food[] = [];
+  myControl = new FormControl('');
 
-  // selectedOption = this.parentData[0]['viewValue']
+  filteredOptions!: Observable<Food[]>;
+  constructor() {}
 
-  // myControl = new FormControl('');
-  // options: string[] = ['One', 'Two', 'Three'];
-  // filteredOptions: Observable<string[]> | undefined;
-
-  ngOnInit() {
-    // this.filteredOptions = this.myControl.valueChanges.pipe(
-    //   startWith(''),
-    //   map((value) => this._filter(value || ''))
-    // );
+  ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value || ''))
+    );
   }
 
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
+  private _filter(value: string): Food[] {
+    const filterValue = value.toLowerCase();
 
-  //   return this.options.filter((option) =>
-  //     option.toLowerCase().includes(filterValue)
-  //   );
-  // }
+    return this.foods.filter((food) =>
+      food.value.toLowerCase().includes(filterValue)
+    );
+  }
 }

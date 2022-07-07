@@ -12,7 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BoxContainerComponent } from './components/box-container/box-container.component';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -28,6 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatInputModule,
+
     MatCardModule,
     MatButtonModule,
     MatSelectModule,

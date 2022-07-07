@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     RequestModule,
+    MatIconModule,
     SharedModule,
     MatSelectModule,
     UserModule,
